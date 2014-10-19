@@ -1,4 +1,4 @@
 progdil
 =======
 
-programlama dilleri dönem projesi
+Programlama dilleri dönem projesi
