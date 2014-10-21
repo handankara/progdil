@@ -120,8 +120,8 @@ namespace ProjectName
 				this.language = lang;
 				this.tekrar = yine;
 				this.uretilenler = this.ProjectNamerator (this.language , this.tekrar); //ProjectNamerator un ürettiği listeyi
-			}																			//sınıfın niteliği olan uretilenler e aktardık
-			public List<string> ProjectNamerator(string language , int tekrar)			//artık nesne.uretilenler ile oluşturulan isimlere erişilebilir
+			}										//sınıfın niteliği olan uretilenler e aktardık
+			public List<string> ProjectNamerator(string language , int tekrar)		//artık nesne.uretilenler ile oluşturulan isimlere erişilebilir
 			{
 			//TODO temp listesine değil de projeler dizinine baksın
 				List<string> temp = new List<string>();
