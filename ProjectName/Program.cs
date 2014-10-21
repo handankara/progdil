@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace ProjectName
 {
@@ -23,6 +22,10 @@ namespace ProjectName
 				else if (int.TryParse (args [0], out tekrar)) 
 				{
 				}
+				else if (args [0] == "help")
+				{
+					help ();
+				}
 				else
 					help ();
 			} 
@@ -32,6 +35,10 @@ namespace ProjectName
 			else
 				help();
 			RollingName isim = new RollingName(language, tekrar) ;
+			foreach (string isimler in isim.uretilenler)
+			{
+				Console.WriteLine (isimler);
+			}
 		}
 		public static void help()
 		{

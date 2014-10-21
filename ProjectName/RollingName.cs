@@ -7,7 +7,8 @@ namespace ProjectName
 		{
 			public string language;
 			public int tekrar;
-			public Dictionary<string, Dictionary<string, List<string>>> 
+			public List<string> uretilenler = new List<string>();
+			public Dictionary<string, Dictionary<string, List<string>>> //Bu sözlük burada olmamalı 
 			sozluk = new Dictionary<string, Dictionary<string, List<string>>>()
 			{
 				{"tr" , new Dictionary<string, List<string>>()
@@ -106,30 +107,39 @@ namespace ProjectName
 				}
 			};
 	
-	//		static void Main(string[] args)
-	//		{
-	//		}
+//			static void Main(string[] args)
+//			{
+//			}
 	
 //			public RollingName ()
 //			{
 //			}
 	
-			public RollingName (string lang , int yine)
+			public RollingName (string lang , int yine) //Construction method
 			{
 				this.language = lang;
 				this.tekrar = yine;
-				this.ProjectNamerator (this.language , this.tekrar);
-	
-			}
-			public void ProjectNamerator(string language , int tekrar)
+				this.uretilenler = this.ProjectNamerator (this.language , this.tekrar); //ProjectNamerator un ürettiği listeyi
+			}																			//sınıfın niteliği olan uretilenler e aktardık
+			public List<string> ProjectNamerator(string language , int tekrar)			//artık nesne.uretilenler ile oluşturulan isimlere erişilebilir
 			{
-				
-	
+			//TODO temp listesine değil de projeler dizinine baksın
+				List<string> temp = new List<string>();
 				int i = 0;
+				Random rnd = new Random ();
+
 				while (i < tekrar) 
 				{
-					i++;
+					string adjective = sozluk [language] ["adjectives"] [rnd.Next (0, sozluk [language] ["adjectives"].Count)].ToString ();
+					string name = sozluk [language] ["names"] [rnd.Next (0, sozluk [language] ["names"].Count)].ToString ();
+					if ( temp.Contains(adjective + " " + name) == false )
+					{
+						temp.Add (adjective + " " + name);
+						i++;
+					}
 				}
+				return temp;
 			}
+			
 		}
 }
