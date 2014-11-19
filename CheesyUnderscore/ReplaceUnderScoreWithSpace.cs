@@ -16,26 +16,26 @@ namespace ReplaceUnderScoreWithSpace
 
         public static void ReplaceUnderScoreWithSpace (this string arg)
         {
-				char[] chars = arg.ToCharArray();
-				int i = 0;
+		char[] chars = arg.ToCharArray();
+		int i = 0;
 				
-				while (i < chars.Length)
-				{
-					if (chars[i].ToString() != "_")
-						break;
-					i++;
-				}
-				int j = (chars.Length)-1;
-				while ( j >= 0)
-				{
-					if (chars[j].ToString() != "_")
-						break;
-					j--;
-				}
-				for (int c = i; c < j; c++)
-				{
-					chars[c] = (chars[c] == '_') ? ' ' : chars[c];
-				}
+		while (i < chars.Length)
+		{
+			if (chars[i].ToString() != "_")
+				break;
+			i++;
+		}
+		int j = (chars.Length)-1;
+		while ( j >= 0)
+		{
+			if (chars[j].ToString() != "_")
+				break;
+			j--;
+		}
+		for (int c = i; c < j; c++)
+		{
+			chars[c] = (chars[c] == '_') ? ' ' : chars[c];
+		}
 				
         }
     }
