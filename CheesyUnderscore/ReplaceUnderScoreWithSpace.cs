@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 
 namespace ReplaceUnderScoreWithSpace
-{
+{   
+    private static char[] chars;
     static class MainClass
     {
         public static void Main (string[] args)
@@ -16,7 +17,7 @@ namespace ReplaceUnderScoreWithSpace
 
         public static void ReplaceUnderScoreWithSpace (this string arg)
         {
-		char[] chars = arg.ToCharArray();
+		chars = arg.ToCharArray();
 		int i = 0;
 				
 		while (i < chars.Length)
