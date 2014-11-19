@@ -7,11 +7,11 @@ namespace ReplaceUnderScoreWithSpace
     {
         public static void Main (string[] args)
         {
-            foreach (string arg in args)
-            {
-                arg.ReplaceUnderScoreWithSpace(); //extension method
-			}
-			Console.WriteLine(chars);
+        	foreach (string arg in args)
+            	{
+                	arg.ReplaceUnderScoreWithSpace(); //extension method
+	    	}
+	        Console.WriteLine(chars);
         }
 
         public static void ReplaceUnderScoreWithSpace (this string arg)
@@ -25,6 +25,7 @@ namespace ReplaceUnderScoreWithSpace
 				break;
 			i++;
 		}
+		
 		int j = (chars.Length)-1;
 		while ( j >= 0)
 		{
@@ -32,6 +33,7 @@ namespace ReplaceUnderScoreWithSpace
 				break;
 			j--;
 		}
+		
 		for (int c = i; c < j; c++)
 		{
 			chars[c] = (chars[c] == '_') ? ' ' : chars[c];
