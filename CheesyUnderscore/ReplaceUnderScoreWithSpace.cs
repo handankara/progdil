@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace ReplaceUnderScoreWithSpace
 {   
     private static char[] chars;
+    
     static class MainClass
     {
         public static void Main (string[] args)
@@ -19,22 +20,20 @@ namespace ReplaceUnderScoreWithSpace
         {
 		chars = arg.ToCharArray();
 		int i = 0;
-				
+		int j = (chars.Length) - 1;
+		
 		while (i < chars.Length)
 		{
 			if (chars[i].ToString() != "_")
 				break;
 			i++;
 		}
-		
-		int j = (chars.Length)-1;
-		while ( j >= 0)
+		while (j >= 0)
 		{
 			if (chars[j].ToString() != "_")
 				break;
 			j--;
 		}
-		
 		for (int c = i; c < j; c++)
 		{
 			chars[c] = (chars[c] == '_') ? ' ' : chars[c];
