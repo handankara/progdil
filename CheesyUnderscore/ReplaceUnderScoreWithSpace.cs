@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace ReplaceUnderScoreWithSpace
 {   
-    private static char[] chars;
-    
     static class MainClass
     {
+    	private static char[] chars;
+    	
         public static void Main (string[] args)
         {
         	foreach (string arg in args)
@@ -38,7 +38,6 @@ namespace ReplaceUnderScoreWithSpace
 		{
 			chars[c] = (chars[c] == '_') ? ' ' : chars[c];
 		}
-				
-        }
+	}
     }
 }
