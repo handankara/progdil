@@ -106,7 +106,7 @@ namespace ProjectNames
 				}
 			}
 		};
-		/*		public RollingNames ()
+		/*public RollingNames ()
 		{
 		Nesneyi argüman vermeden de oluşturabilmek için beni etkinleştir.
 		}*/
@@ -128,21 +128,23 @@ namespace ProjectNames
 			while (i < againcount) {
 				string adjective = treasure [language] ["adjectives"] [rnd.Next (0, treasure [language] ["adjectives"].Count)].ToString ();
 				string name = treasure [language] ["names"] [rnd.Next (0, treasure [language] ["names"].Count)].ToString ();
-				if (directorynames.BinarySearch (adjective + "-" + name) <= -1 &&
-					produced.BinarySearch (adjective + "-" + name) <= -1) {
+				if (!(produced.Contains (adjective + "-" + name) ||
+					directorynames.Contains (adjective + "-" + name))) {
 					produced.Add (adjective + "-" + name);
-					CreateDirectory (adjective + "-" + name);
 					i++;
 				}
 			}
+			CreateDirectory (produced);
 			return produced;
 		}
 
-		public void CreateDirectory (string directoryname)
+		public void CreateDirectory (List<string> directorynames)
 		{
-			Directory.CreateDirectory (Directory.GetCurrentDirectory () +
-				Path.DirectorySeparatorChar + this.language + "Projects" + 
-				Path.DirectorySeparatorChar + directoryname);
+			foreach (string directoryname in directorynames) {
+				Directory.CreateDirectory (Directory.GetCurrentDirectory () +
+					Path.DirectorySeparatorChar + this.language + "Projects" + 
+					Path.DirectorySeparatorChar + directoryname);
+			}
 		}
 
 		public List<string> GetDirectoryNames (string path)
