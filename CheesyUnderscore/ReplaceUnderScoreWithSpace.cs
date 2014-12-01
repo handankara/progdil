@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ReplaceUnderScoreWithSpace
 {
-	static class MainClass
+	static class CheesyUnderscore
 	{
 		public static void Main (string[] args)
 		{
