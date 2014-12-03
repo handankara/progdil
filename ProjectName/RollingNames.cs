@@ -9,7 +9,7 @@ namespace ProjectNames
 		private string language = System.Globalization.CultureInfo.CurrentCulture.Name.Split ('-') [0];
 		private int againcount = 1;
 		public List<string> produced = new List<string> ();
-		public Dictionary<string, Dictionary<string, List<string>>> 
+		private Dictionary<string, Dictionary<string, List<string>>> 
 			treasure = new Dictionary<string, Dictionary<string, List<string>>> () {
 			{"tr", new Dictionary<string, List<string>> ()
 				{
