@@ -6,8 +6,8 @@ namespace ProjectNames
 {
 	public class RollingNames
 	{
-		public string language;
-		public int againcount;
+		private string language = System.Globalization.CultureInfo.CurrentCulture.Name.Split ('-') [0];
+		private int againcount = 1;
 		public List<string> produced = new List<string> ();
 		public Dictionary<string, Dictionary<string, List<string>>> 
 			treasure = new Dictionary<string, Dictionary<string, List<string>>> () {
@@ -106,39 +106,39 @@ namespace ProjectNames
 				}
 			}
 		};
-		/*public RollingNames ()
+
+		public RollingNames ()
 		{
-		Nesneyi argüman vermeden de oluşturabilmek için beni etkinleştir.
-		}*/
-		public RollingNames (string language, int againcount) //Construction method
+		}
+
+		public RollingNames (string language, int againcount) // Construction method
 		{
 			this.language = language;
 			this.againcount = againcount;
-			this.produced = this.ProjectNamerator (this.language, this.againcount);
 		}
 
-		public List<string> ProjectNamerator (string language, int againcount)
+		public void ProjectNamerator ()
 		{
-			List<string> produced = new List<string> ();
 			List<string> directorynames = GetDirectoryNames (Directory.GetCurrentDirectory () + 
 				Path.DirectorySeparatorChar.ToString () + this.language + "Projects");
 			int i = 0;
 			Random rnd = new Random ();
 
-			while (i < againcount) {
-				string adjective = treasure [language] ["adjectives"] [rnd.Next (0, treasure [language] ["adjectives"].Count)].ToString ();
-				string name = treasure [language] ["names"] [rnd.Next (0, treasure [language] ["names"].Count)].ToString ();
-				if (!(produced.Contains (adjective + "-" + name) ||
-					directorynames.Contains (adjective + "-" + name))) {
-					produced.Add (adjective + "-" + name);
+			while (i < this.againcount) {
+				string adjective = treasure [this.language] ["adjectives"] [rnd.Next (0, treasure [this.language] ["adjectives"].Count)].ToString ();
+				string name = treasure [this.language] ["names"] [rnd.Next (0, treasure [this.language] ["names"].Count)].ToString ();
+				if (this.produced.Contains (adjective + "-" + name) ||
+					directorynames.Contains (adjective + "-" + name)) {
+					// noop
+				} else {
+					this.produced.Add (adjective + "-" + name);
 					i++;
 				}
 			}
-			CreateDirectory (produced);
-			return produced;
+			CreateDirectories (this.produced);
 		}
 
-		public void CreateDirectory (List<string> directorynames)
+		public void CreateDirectories (List<string> directorynames)
 		{
 			foreach (string directoryname in directorynames) {
 				Directory.CreateDirectory (Directory.GetCurrentDirectory () +
