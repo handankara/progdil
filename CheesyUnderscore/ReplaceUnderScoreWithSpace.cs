@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ReplaceUnderScoreWithSpace
 {
-	static class MainClass
+	static class CheesyUnderscore
 	{
 		public static void Main (string[] args)
 		{
@@ -12,7 +12,7 @@ namespace ReplaceUnderScoreWithSpace
 			}
 		}
 
-		public static char[] ReplaceUnderScoreWithSpace (this string arg)
+		public static string ReplaceUnderScoreWithSpace (this string arg)
 		{
 			char[] chars = arg.ToCharArray ();
 			int i = 0;
@@ -31,7 +31,8 @@ namespace ReplaceUnderScoreWithSpace
 			for (int c = i; c < j; c++) {
 				chars [c] = (chars [c] == '_') ? ' ' : chars [c];
 			}
-			return chars;
+			string karakter = new string (chars);
+			return karakter;
 		}
 	}
 }
